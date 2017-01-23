@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 #------------------------------------------------------------
-# http://www.youtube.com/user/FULLYCHARGEDSHOW
-#------------------------------------------------------------
 # License: GPL (http://www.gnu.org/licenses/gpl-3.0.html)
 # Based on code from youtube addon
 #------------------------------------------------------------
@@ -12,16 +10,16 @@ import plugintools
 import xbmc,xbmcaddon
 from addon.common.addon import Addon
 
-addonID = 'plugin.video.fullycharged'
+addonID = 'plugin.video.hardstyletv'
 addon = Addon(addonID, sys.argv)
 local = xbmcaddon.Addon(id=addonID)
 icon = local.getAddonInfo('icon')
 
-YOUTUBE_CHANNEL_ID = "FULLYCHARGEDSHOW"
+YOUTUBE_PLAYLIST_ID = "PLUKXSlbHWi2huhANVImh3RxMQ19ASXw6p"
 
 # Entry point
 def run():
-    plugintools.log("fullycharged.run")
+    plugintools.log("hardstyletv.run")
     
     # Get params
     params = plugintools.get_params()
@@ -35,12 +33,12 @@ def run():
 
 # Main menu
 def main_list(params):
-    plugintools.log("fullycharged.main_list "+repr(params))
+    plugintools.log("hardstyletv.main_list "+repr(params))
 
     plugintools.add_item( 
         #action="", 
-        title="Electric cars and the future",
-        url="plugin://plugin.video.youtube/user/"+YOUTUBE_CHANNEL_ID+"/",
+        title="Hardstyle Livesets",
+        url="plugin://plugin.video.youtube/playlist/"+YOUTUBE_PLAYLIST_ID+"/",
         thumbnail=icon,
         folder=True )
 
