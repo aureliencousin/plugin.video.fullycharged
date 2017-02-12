@@ -34,89 +34,78 @@ def run():
 # Main menu
 def main_list(params):
     plugintools.log("hardstyletv.main_list "+repr(params))
+	
+	plugintools.add_item( 
+        title="Qlimax 2016",
+        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2g6Hp2Sq4Gz5Wte6MRpOX5U/",
+        thumbnail=icon,
+        folder=True )
 
-    plugintools.add_item( 
-        #action="", 
-        title="Defqon.1 OLD",
-        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2hjXmAbhSXlzb33Kbe8MWBo/",
+	plugintools.add_item( 
+        title="Q-Base 2016",
+        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2iWv8pO6ft101PaGS6Qjrv_/",
         thumbnail=icon,
         folder=True )
-		
-    plugintools.add_item( 
-        #action="", 
-        title="Qlimax OLD",
-        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2jLjh0TYWIde8LjdImdM38f/",
-        thumbnail=icon,
-        folder=True )
-		
-    plugintools.add_item( 
-        #action="", 
-        title="Hard Bass OLD",
-        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2gpenEDab_9n-RKbRMUViB2/",
-        thumbnail=icon,
-        folder=True )
-		
-    plugintools.add_item( 
-        #action="", 
-        title="Hard Bass 2015",
-        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2hsUFxs1o2DukBJiqMDAcX2/",
-        thumbnail=icon,
-        folder=True )
-		
-    plugintools.add_item( 
-        #action="", 
-        title="QAPITAL 2015",
-        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2gCKp8OLVZzmGxZI5FAZmSU/",
-        thumbnail=icon,
-        folder=True )
-		
-    plugintools.add_item( 
-        #action="", 
-        title="QAPITAL 2016",
-        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2jW3pkaYl34gDaUrJ34ncRI/",
-        thumbnail=icon,
-        folder=True )
-		
-    plugintools.add_item( 
-        #action="", 
-        title="Defqon.1 2015",
-        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2g9sdCH_6scus_EBOZGhq7C/",
-        thumbnail=icon,
-        folder=True )
-		
-    plugintools.add_item( 
-        #action="", 
-        title="Qlimax 2015",
-        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2guDBcyAxQgWuU-uDx8ZL5s/",
-        thumbnail=icon,
-        folder=True )
-		
-    plugintools.add_item( 
-        #action="", 
-        title="Hard Bass 2016",
-        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2jv7VvXsh1XMNu_0E7LcrWJ/",
-        thumbnail=icon,
-        folder=True )
-		
-    plugintools.add_item( 
-        #action="", 
+
+	plugintools.add_item( 
         title="Defqon.1 2016",
         url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2i9gLEWlV76dsS_I9pk4RbD/",
         thumbnail=icon,
         folder=True )
 		
     plugintools.add_item( 
-        #action="", 
-        title="Q-Base 2016",
-        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2iWv8pO6ft101PaGS6Qjrv_/",
+        title="QAPITAL 2016",
+        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2jW3pkaYl34gDaUrJ34ncRI/",
+        thumbnail=icon,
+        folder=True )
+
+    plugintools.add_item( 
+        title="Hard Bass 2016",
+        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2jv7VvXsh1XMNu_0E7LcrWJ/",
         thumbnail=icon,
         folder=True )
 		
     plugintools.add_item( 
-        #action="", 
-        title="Qlimax 2016",
-        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2g6Hp2Sq4Gz5Wte6MRpOX5U/",
+        title="Qlimax 2015",
+        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2guDBcyAxQgWuU-uDx8ZL5s/",
         thumbnail=icon,
         folder=True )
+		
+    plugintools.add_item( 
+        title="Defqon.1 2015",
+        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2g9sdCH_6scus_EBOZGhq7C/",
+        thumbnail=icon,
+        folder=True )
+		
+    plugintools.add_item( 
+        title="QAPITAL 2015",
+        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2gCKp8OLVZzmGxZI5FAZmSU/",
+        thumbnail=icon,
+        folder=True )
+		
+    plugintools.add_item( 
+        title="Hard Bass 2015",
+        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2hsUFxs1o2DukBJiqMDAcX2/",
+        thumbnail=icon,
+        folder=True )
+		
+	plugintools.add_item( 
+        title="Qlimax OLD",
+        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2jLjh0TYWIde8LjdImdM38f/",
+        thumbnail=icon,
+        folder=True )
+
+    plugintools.add_item( 
+        title="Defqon.1 OLD",
+        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2hjXmAbhSXlzb33Kbe8MWBo/",
+        thumbnail=icon,
+        folder=True )
+		
+    plugintools.add_item( 
+        title="Hard Bass OLD",
+        url="plugin://plugin.video.youtube/playlist/PLUKXSlbHWi2gpenEDab_9n-RKbRMUViB2/",
+        thumbnail=icon,
+        folder=True )	
+
 
 run()
