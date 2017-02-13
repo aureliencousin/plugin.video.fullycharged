@@ -12,7 +12,7 @@ from addon.common.addon import Addon
 
 addonID = 'plugin.video.hardstyletv'
 addon = Addon(addonID, sys.argv)
-local = xbmcaddon.Addon(id=addonID)
+local = xbmcaddon.Addon()
 icon = local.getAddonInfo('icon')
 
 YOUTUBE_PLAYLIST_ID = "PLUKXSlbHWi2huhANVImh3RxMQ19ASXw6p"
