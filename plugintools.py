@@ -63,52 +63,6 @@ SEASONS = "seasons"
 EPISODES = "episodes"
 OTHER = "other"
 
-# Suggested view codes for each type from different skins (initial list thanks to xbmcswift2 library)
-ALL_VIEW_CODES = {
-    'list': {
-        'skin.confluence': 50, # List
-        'skin.aeon.nox': 50, # List
-        'skin.droid': 50, # List
-        'skin.quartz': 50, # List
-        'skin.re-touched': 50, # List
-    },
-    'thumbnail': {
-        'skin.confluence': 500, # Thumbnail
-        'skin.aeon.nox': 500, # Wall
-        'skin.droid': 51, # Big icons
-        'skin.quartz': 51, # Big icons
-        'skin.re-touched': 500, #Thumbnail
-    },
-    'movies': {
-        'skin.confluence': 500, # Thumbnail 515, # Media Info 3
-        'skin.aeon.nox': 500, # Wall
-        'skin.droid': 51, # Big icons
-        'skin.quartz': 52, # Media info
-        'skin.re-touched': 500, #Thumbnail
-    },
-    'tvshows': {
-        'skin.confluence': 500, # Thumbnail 515, # Media Info 3
-        'skin.aeon.nox': 500, # Wall
-        'skin.droid': 51, # Big icons
-        'skin.quartz': 52, # Media info
-        'skin.re-touched': 500, #Thumbnail
-    },
-    'seasons': {
-        'skin.confluence': 50, # List
-        'skin.aeon.nox': 50, # List
-        'skin.droid': 50, # List
-        'skin.quartz': 52, # Media info
-        'skin.re-touched': 50, # List
-    },
-    'episodes': {
-        'skin.confluence': 504, # Media Info
-        'skin.aeon.nox': 518, # Infopanel
-        'skin.droid': 50, # List
-        'skin.quartz': 52, # Media info
-        'skin.re-touched': 550, # Wide
-    },
-}
-
 # Write something on XBMC log
 def log(message):
     xbmc.log(message)
@@ -360,7 +314,8 @@ def find_single_match(text,pattern):
 def add_item( action="" , title="" , plot="" , url="" , thumbnail="" , fanart="" , show="" , episode="" , extra="", page="", info_labels = None, isPlayable = False , folder=True ):
     _log("add_item action=["+action+"] title=["+title+"] url=["+url+"] thumbnail=["+thumbnail+"] fanart=["+fanart+"] show=["+show+"] episode=["+episode+"] extra=["+extra+"] page=["+page+"] isPlayable=["+str(isPlayable)+"] folder=["+str(folder)+"]")
 
-    listitem = xbmcgui.ListItem( title, iconImage="DefaultVideo.png", thumbnailImage=thumbnail )
+    listitem = xbmcgui.ListItem( title )
+    listitem.setArt({"thumb":thumbnail, "icon":"DefaultVideo.png"})
     if info_labels is None:
         info_labels = { "Title" : title, "FileName" : title, "Plot" : plot }
     listitem.setInfo( "video", info_labels )
@@ -400,9 +355,10 @@ def direct_play(url):
     title = ""
 
     try:
-        xlistitem = xbmcgui.ListItem( title, iconImage="DefaultVideo.png", path=url)
+        xlistitem = xbmcgui.ListItem( title, path=url)
     except:
-        xlistitem = xbmcgui.ListItem( title, iconImage="DefaultVideo.png", )
+        xlistitem = xbmcgui.ListItem( title, )
+    xlistitem.setArt({"thumb":"DefaultVideo.png","icon":"DefaultVideo.png"})
     xlistitem.setInfo( "video", { "Title": title } )
 
     playlist = xbmc.PlayList( xbmc.PLAYLIST_VIDEO )
@@ -536,47 +492,6 @@ def selector(option_list,title="Select one"):
 
     return selection
 
-def set_view(view_mode, view_code=0):
-    _log("set_view view_mode='"+view_mode+"', view_code="+str(view_code))
 
-    # Set the content for extended library views if needed
-    if view_mode==MOVIES:
-        _log("set_view content is movies")
-        xbmcplugin.setContent( int(sys.argv[1]) ,"movies" )
-    elif view_mode==TV_SHOWS:
-        _log("set_view content is tvshows")
-        xbmcplugin.setContent( int(sys.argv[1]) ,"tvshows" )
-    elif view_mode==SEASONS:
-        _log("set_view content is seasons")
-        xbmcplugin.setContent( int(sys.argv[1]) ,"seasons" )
-    elif view_mode==EPISODES:
-        _log("set_view content is episodes")
-        xbmcplugin.setContent( int(sys.argv[1]) ,"episodes" )
-
-    # Reads skin name
-    skin_name = xbmc.getSkinDir()
-    _log("set_view skin_name='"+skin_name+"'")
-
-    try:
-        if view_code==0:
-            _log("set_view view mode is "+view_mode)
-            view_codes = ALL_VIEW_CODES.get(view_mode)
-            view_code = view_codes.get(skin_name)
-            _log("set_view view code for "+view_mode+" in "+skin_name+" is "+str(view_code))
-            xbmc.executebuiltin("Container.SetViewMode("+str(view_code)+")")
-        else:
-            _log("set_view view code forced to "+str(view_code))
-            xbmc.executebuiltin("Container.SetViewMode("+str(view_code)+")")
-    except:
-        _log("Unable to find view code for view mode "+str(view_mode)+" and skin "+skin_name)
-
-f = open( os.path.join( os.path.dirname(__file__) , "addon.xml") )
-data = f.read()
-f.close()
-
-addon_id = find_single_match(data,'id="([^"]+)"')
-if addon_id=="":
-    addon_id = find_single_match(data,"id='([^']+)'")
-
-__settings__ = xbmcaddon.Addon(id=addon_id)
+__settings__ = xbmcaddon.Addon()
 __language__ = __settings__.getLocalizedString
