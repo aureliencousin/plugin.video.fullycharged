@@ -315,7 +315,7 @@ def add_item( action="" , title="" , plot="" , url="" , thumbnail="" , fanart=""
     _log("add_item action=["+action+"] title=["+title+"] url=["+url+"] thumbnail=["+thumbnail+"] fanart=["+fanart+"] show=["+show+"] episode=["+episode+"] extra=["+extra+"] page=["+page+"] isPlayable=["+str(isPlayable)+"] folder=["+str(folder)+"]")
 
     listitem = xbmcgui.ListItem( title )
-	listitem.setArt({"thumb":thumbnail, "icon":"DefaultVideo.png"})
+    listitem.setArt({"thumb":thumbnail, "icon":"DefaultVideo.png"})
     if info_labels is None:
         info_labels = { "Title" : title, "FileName" : title, "Plot" : plot }
     listitem.setInfo( "video", info_labels )
@@ -358,7 +358,7 @@ def direct_play(url):
         xlistitem = xbmcgui.ListItem( title, path=url)
     except:
         xlistitem = xbmcgui.ListItem( title, )
-	xlistitem.setArt({"thumb":"DefaultVideo.png","icon":"DefaultVideo.png"})
+    xlistitem.setArt({"thumb":"DefaultVideo.png","icon":"DefaultVideo.png"})
     xlistitem.setInfo( "video", { "Title": title } )
 
     playlist = xbmc.PlayList( xbmc.PLAYLIST_VIDEO )
@@ -492,22 +492,6 @@ def selector(option_list,title="Select one"):
 
     return selection
 
-def set_view(view_mode, view_code=0):
-    _log("set_view view_mode='"+view_mode+"', view_code="+str(view_code))
-
-    # Set the content for extended library views if needed
-    if view_mode==MOVIES:
-        _log("set_view content is movies")
-        xbmcplugin.setContent( int(sys.argv[1]) ,"movies" )
-    elif view_mode==TV_SHOWS:
-        _log("set_view content is tvshows")
-        xbmcplugin.setContent( int(sys.argv[1]) ,"tvshows" )
-    elif view_mode==SEASONS:
-        _log("set_view content is seasons")
-        xbmcplugin.setContent( int(sys.argv[1]) ,"seasons" )
-    elif view_mode==EPISODES:
-        _log("set_view content is episodes")
-        xbmcplugin.setContent( int(sys.argv[1]) ,"episodes" )
 
 __settings__ = xbmcaddon.Addon()
 __language__ = __settings__.getLocalizedString
